@@ -77,4 +77,45 @@ Public Class AdminMenu
             End If
         Next
     End Sub
+
+    Private Sub btnAddMovie_Click(sender As Object, e As EventArgs) Handles btnAddMovie.Click
+        Dim addMovie As New AddMovie
+        addMovie.ShowDialog()
+        btnRefresh.PerformClick()
+    End Sub
+
+    Private Sub btnDeleteMovie_Click(sender As Object, e As EventArgs) Handles btnDeleteMovie.Click
+        Dim movieAL As ArrayList = sqlInterface.getMovies()
+
+        For Each movieObj In movieAL
+            Dim movie As MovieInfo = movieObj
+
+            If listMovie.SelectedItem = movie.title Then
+                If sqlInterface.deleteMovie(movie) > 0 Then
+                    MessageBox.Show("Movie deleted!")
+                    btnRefresh.PerformClick()
+                    Exit Sub
+
+                End If
+            End If
+        Next
+        MessageBox.Show("Please select a movie!")
+    End Sub
+
+    Private Sub btnAddSession_Click(sender As Object, e As EventArgs) Handles btnAddSession.Click
+        Dim movieAL As ArrayList = sqlInterface.getMovies()
+
+        For Each movieObj In movieAL
+            Dim movie As MovieInfo = movieObj
+
+            If listMovie.SelectedItem = movie.title Then
+                If sqlInterface.deleteMovie(movie) > 0 Then
+                    MessageBox.Show("Movie deleted!")
+                    Exit Sub
+
+                End If
+            End If
+        Next
+        MessageBox.Show("Please select a movie!")
+    End Sub
 End Class

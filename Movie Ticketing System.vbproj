@@ -77,6 +77,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Booking\BookingInfo.vb" />
+    <Compile Include="Booking\Seat.Designer.vb">
+      <DependentUpon>Seat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\Seat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking\SeatButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Movie\AddMovie.designer.vb">
       <DependentUpon>AddMovie.vb</DependentUpon>
     </Compile>
@@ -89,6 +99,19 @@
     <Compile Include="Login.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Movie\EditMovie.Designer.vb">
+      <DependentUpon>EditMovie.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Movie\EditMovie.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movie\AddSession.Designer.vb">
+      <DependentUpon>AddSession.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Movie\AddSession.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movie\MovieInfo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -132,11 +155,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Booking\Seat.resx">
+      <DependentUpon>Seat.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Movie\AddMovie.resx">
       <DependentUpon>AddMovie.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movie\EditMovie.resx">
+      <DependentUpon>EditMovie.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movie\AddSession.resx">
+      <DependentUpon>AddSession.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

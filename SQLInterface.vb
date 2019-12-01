@@ -49,23 +49,25 @@ Public Class SQLInterface
     End Function
 
     Public Function loadMovie()
-        Dim al As New ArrayList
         Try
-            cmd.CommandText = "SELECT title FROM movie"
+            cmd.CommandText = "SELECT id,title,publish_date,duration,genre,poster_link,description FROM movie"
             checkConn()
             Dim sqlreader As MySqlDataReader = cmd.ExecuteReader()
 
             While sqlreader.Read()
-                al.Add(sqlreader("title"))
+                moviesAL.Add(New MovieInfo(CInt(sqlreader("id")), New Date(sqlreader("publish_date")), CInt(sqlreader("duration")), sqlreader("genre"), sqlreader("poster_link"), sqlreader("description")))
             End While
         Catch ex As MySqlException
             MessageBox.Show(ex.Message)
         Finally
             conn.Close()
         End Try
-        Return al
+        Return moviesAL
     End Function
 
+    Public Function getMovies()
+        Return moviesAL
+    End Function
     Public Function addUser(ByVal user As UserInfo)
         Dim affected_rows As Integer
         Try
@@ -122,5 +124,62 @@ Public Class SQLInterface
         Return affected_rows
     End Function
 
+    Public Function addMovie(ByVal movie As MovieInfo)
+        Dim affected_rows As Integer
+        Try
+            checkConn()
 
+            cmd.CommandText = "INSERT INTO movie(title,publish_date,duration,genre,poster_link,description) VALUES(@title,@publish_date,@duration,@genre,@poster_link,@description)"
+            cmd.Parameters.AddWithValue("@title", movie.title)
+            cmd.Parameters.AddWithValue("@publish_date", movie.publish_date.ToString("yyyy-MM-dd"))
+            cmd.Parameters.AddWithValue("@duration", movie.duration)
+            cmd.Parameters.AddWithValue("@genre", movie.genre)
+            cmd.Parameters.AddWithValue("@poster_link", movie.poster_link)
+            cmd.Parameters.AddWithValue("@description", movie.description)
+            affected_rows = cmd.ExecuteNonQuery()
+        Catch ex As MySqlException
+            MessageBox.Show(ex.Message)
+        Finally
+            conn.Close()
+        End Try
+        Return affected_rows
+    End Function
+
+    Public Function editMovie(ByVal movie As MovieInfo)
+        Dim affected_rows As Integer
+        Try
+            checkConn()
+
+            cmd.CommandText = "UPDATE movie SET title=@title,publish_date=@publish_date,duration=@duration,genre=@genre,poster_link=@poster_link,description=@description WHERE id=@id)"
+            cmd.Parameters.AddWithValue("@title", movie.title)
+            cmd.Parameters.AddWithValue("@publish_date", movie.publish_date.ToString("yyyy-MM-dd"))
+            cmd.Parameters.AddWithValue("@duration", movie.duration)
+            cmd.Parameters.AddWithValue("@genre", movie.genre)
+            cmd.Parameters.AddWithValue("@poster_link", movie.poster_link)
+            cmd.Parameters.AddWithValue("@description", movie.description)
+            cmd.Parameters.AddWithValue("@id", movie.id)
+            affected_rows = cmd.ExecuteNonQuery()
+        Catch ex As MySqlException
+            MessageBox.Show(ex.Message)
+        Finally
+            conn.Close()
+        End Try
+        Return affected_rows
+    End Function
+
+    Public Function deleteMovie(ByVal movie As MovieInfo)
+        Dim affected_rows As Integer
+        Try
+            checkConn()
+
+            cmd.CommandText = "DELETE FROM movie WHERE id=@id"
+            cmd.Parameters.AddWithValue("@id", movie.id)
+            affected_rows = cmd.ExecuteNonQuery()
+        Catch ex As MySqlException
+            MessageBox.Show(ex.Message)
+        Finally
+            conn.Close()
+        End Try
+        Return affected_rows
+    End Function
 End Class

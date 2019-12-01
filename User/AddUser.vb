@@ -13,7 +13,9 @@ Public Class AddUser
         End If
     End Sub
 
+#Disable Warning BC40003 ' Member shadows an overloadable member declared in the base type
     Private Function validate() As Boolean
+#Enable Warning BC40003 ' Member shadows an overloadable member declared in the base type
         If (txtName.Text.Length > 0 And txtEmail.Text.Length > 0 And txtUsername.Text.Length > 0 And txtPassword.Text.Length > 0) Then
             Return True
         End If
