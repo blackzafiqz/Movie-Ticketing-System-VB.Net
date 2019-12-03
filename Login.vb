@@ -15,10 +15,12 @@ Public Class Login
                 If user.username = txtUsername.Text And user.password = txtPassword.Text Then
                     correct = True
                     If user.permission = "admin" Then
-                        AdminMenu.Show()
+                        Dim adminMenu As New AdminMenu()
+                        adminMenu.Show()
                         Me.Hide()
                     Else
-                        UserMenu.Show()
+                        Dim userMenu As New UserMenu(user)
+                        userMenu.Show()
                         Me.Hide()
                     End If
                     Exit Sub

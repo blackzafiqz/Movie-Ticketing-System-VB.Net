@@ -8,8 +8,8 @@
         Me.Height = 25
         Me.Width = 25
         Me.Location = New Point(y, x)
-        row = r
-        column = c
+        Me.row = r
+        Me.column = c
     End Sub
 
     Private Sub SeatButton_Click(sender As Object, e As EventArgs) Handles Me.Click
@@ -21,4 +21,21 @@
             Me.BackColor = Color.Aqua
         End If
     End Sub
+
+    Public ReadOnly Property selectedSeat As Boolean
+        Get
+            Return selected
+        End Get
+    End Property
+
+    Public ReadOnly Property selectedRow As Integer
+        Get
+            Return row
+        End Get
+    End Property
+    Public ReadOnly Property selectedColumn As Integer
+        Get
+            Return column
+        End Get
+    End Property
 End Class

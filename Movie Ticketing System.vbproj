@@ -78,6 +78,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Booking\BookingInfo.vb" />
+    <Compile Include="Booking\BookingConfirmation.Designer.vb">
+      <DependentUpon>BookingConfirmation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\BookingConfirmation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking\ViewBooking.Designer.vb">
+      <DependentUpon>ViewBooking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\ViewBooking.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movie\EditSession.Designer.vb">
+      <DependentUpon>EditSession.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Movie\EditSession.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movie\ViewSession.Designer.vb">
+      <DependentUpon>ViewSession.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Movie\ViewSession.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movie\SessionInfo.vb" />
     <Compile Include="Booking\Seat.Designer.vb">
       <DependentUpon>Seat.vb</DependentUpon>
     </Compile>
@@ -155,8 +180,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Booking\BookingConfirmation.resx">
+      <DependentUpon>BookingConfirmation.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Booking\Seat.resx">
       <DependentUpon>Seat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking\ViewBooking.resx">
+      <DependentUpon>ViewBooking.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Movie\AddMovie.resx">
       <DependentUpon>AddMovie.vb</DependentUpon>
@@ -169,6 +200,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Movie\AddSession.resx">
       <DependentUpon>AddSession.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movie\EditSession.resx">
+      <DependentUpon>EditSession.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movie\ViewSession.resx">
+      <DependentUpon>ViewSession.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -184,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User\EditUser.resx">
       <DependentUpon>EditUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserMenu.resx">
+      <DependentUpon>UserMenu.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

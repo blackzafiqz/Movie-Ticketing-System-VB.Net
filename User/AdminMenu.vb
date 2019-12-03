@@ -18,10 +18,11 @@ Public Class AdminMenu
     End Sub
 
     Private Sub loadMovie()
-        Dim temp As ArrayList = sqlInterface.loadMovie()
+        Dim moviesAL As ArrayList = sqlInterface.loadMovie()
         listMovie.Items.Clear()
-        For Each movie In temp
-            listMovie.Items.Add(movie)
+        For Each movieObj In moviesAL
+            Dim movie As MovieInfo = movieObj
+            listMovie.Items.Add(movie.title)
         Next
     End Sub
 
@@ -102,18 +103,17 @@ Public Class AdminMenu
         MessageBox.Show("Please select a movie!")
     End Sub
 
-    Private Sub btnAddSession_Click(sender As Object, e As EventArgs) Handles btnAddSession.Click
+    Private Sub btnViewSession_Click(sender As Object, e As EventArgs) Handles btnViewSession.Click
         Dim movieAL As ArrayList = sqlInterface.getMovies()
 
         For Each movieObj In movieAL
             Dim movie As MovieInfo = movieObj
 
             If listMovie.SelectedItem = movie.title Then
-                If sqlInterface.deleteMovie(movie) > 0 Then
-                    MessageBox.Show("Movie deleted!")
-                    Exit Sub
+                Dim viewSession As New ViewSession(movie)
+                viewSession.ShowDialog()
+                Exit Sub
 
-                End If
             End If
         Next
         MessageBox.Show("Please select a movie!")

@@ -32,7 +32,7 @@ Partial Class AdminMenu
         Me.btnDeleteMovie = New System.Windows.Forms.Button()
         Me.btnRefresh = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
-        Me.btnAddSession = New System.Windows.Forms.Button()
+        Me.btnViewSession = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'listUser
@@ -123,21 +123,21 @@ Partial Class AdminMenu
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = True
         '
-        'btnAddSession
+        'btnViewSession
         '
-        Me.btnAddSession.Location = New System.Drawing.Point(111, 216)
-        Me.btnAddSession.Name = "btnAddSession"
-        Me.btnAddSession.Size = New System.Drawing.Size(81, 23)
-        Me.btnAddSession.TabIndex = 10
-        Me.btnAddSession.Text = "Add Session"
-        Me.btnAddSession.UseVisualStyleBackColor = True
+        Me.btnViewSession.Location = New System.Drawing.Point(169, 207)
+        Me.btnViewSession.Name = "btnViewSession"
+        Me.btnViewSession.Size = New System.Drawing.Size(81, 23)
+        Me.btnViewSession.TabIndex = 10
+        Me.btnViewSession.Text = "View Session"
+        Me.btnViewSession.UseVisualStyleBackColor = True
         '
         'AdminMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(705, 327)
-        Me.Controls.Add(Me.btnAddSession)
+        Me.Controls.Add(Me.btnViewSession)
         Me.Controls.Add(Me.btnLogout)
         Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.btnDeleteMovie)
@@ -164,5 +164,5 @@ Partial Class AdminMenu
     Friend WithEvents btnDeleteMovie As Button
     Friend WithEvents btnRefresh As Button
     Friend WithEvents btnLogout As Button
-    Friend WithEvents btnAddSession As Button
+    Friend WithEvents btnViewSession As Button
 End Class

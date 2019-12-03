@@ -28,7 +28,7 @@
 
     Public Property seatRow As Integer
         Get
-            Return seatRow
+            Return _seatrow
         End Get
         Set(value As Integer)
             _seatrow = value

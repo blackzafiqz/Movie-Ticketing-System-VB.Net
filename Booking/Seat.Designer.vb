@@ -38,6 +38,7 @@ Partial Class Seat
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.btnSubmit = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -184,11 +185,21 @@ Partial Class Seat
         Me.Label16.TabIndex = 16
         Me.Label16.Text = "11"
         '
+        'btnSubmit
+        '
+        Me.btnSubmit.Location = New System.Drawing.Point(60, 290)
+        Me.btnSubmit.Name = "btnSubmit"
+        Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
+        Me.btnSubmit.TabIndex = 17
+        Me.btnSubmit.Text = "Submit"
+        Me.btnSubmit.UseVisualStyleBackColor = True
+        '
         'Seat
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(619, 333)
+        Me.Controls.Add(Me.btnSubmit)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
@@ -229,4 +240,5 @@ Partial Class Seat
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
+    Friend WithEvents btnSubmit As Button
 End Class
