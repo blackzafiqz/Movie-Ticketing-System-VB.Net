@@ -42,4 +42,9 @@ Public Class Login
         txtUsername.Clear()
         txtPassword.Clear()
     End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        Dim adduser As New AddUser()
+        adduser.Show()
+    End Sub
 End Class

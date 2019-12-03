@@ -28,6 +28,7 @@ Partial Class Login
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.btnReset = New System.Windows.Forms.Button()
+        Me.btnRegister = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lblUsername
@@ -65,7 +66,7 @@ Partial Class Login
         '
         'btnLogin
         '
-        Me.btnLogin.Location = New System.Drawing.Point(74, 87)
+        Me.btnLogin.Location = New System.Drawing.Point(47, 87)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(75, 23)
         Me.btnLogin.TabIndex = 3
@@ -74,18 +75,28 @@ Partial Class Login
         '
         'btnReset
         '
-        Me.btnReset.Location = New System.Drawing.Point(189, 87)
+        Me.btnReset.Location = New System.Drawing.Point(209, 87)
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(75, 23)
         Me.btnReset.TabIndex = 4
         Me.btnReset.Text = "Reset"
         Me.btnReset.UseVisualStyleBackColor = True
         '
+        'btnRegister
+        '
+        Me.btnRegister.Location = New System.Drawing.Point(128, 87)
+        Me.btnRegister.Name = "btnRegister"
+        Me.btnRegister.Size = New System.Drawing.Size(75, 23)
+        Me.btnRegister.TabIndex = 5
+        Me.btnRegister.Text = "Register"
+        Me.btnRegister.UseVisualStyleBackColor = True
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(346, 122)
+        Me.Controls.Add(Me.btnRegister)
         Me.Controls.Add(Me.btnReset)
         Me.Controls.Add(Me.btnLogin)
         Me.Controls.Add(Me.txtPassword)
@@ -105,4 +116,5 @@ Partial Class Login
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents btnLogin As Button
     Friend WithEvents btnReset As Button
+    Friend WithEvents btnRegister As Button
 End Class
