@@ -38,4 +38,9 @@
             Return column
         End Get
     End Property
+
+    Public Sub unavailable()
+        Me.Enabled = False
+        Me.BackColor = Color.Red
+    End Sub
 End Class

@@ -81,6 +81,10 @@
     End Sub
 
     Private Sub btnChooseSeat_Click(sender As Object, e As EventArgs) Handles btnChooseSeat.Click
+        If cmbMovieTitle.SelectedIndex < 0 And cmbSession.SelectedIndex < 0 Then
+            MessageBox.Show("You need to select a title and session")
+            Exit Sub
+        End If
 
         For Each movieObj In moviesAL
             Dim movie As MovieInfo = movieObj

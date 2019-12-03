@@ -2,6 +2,7 @@
     Dim seat(5, 11) As SeatButton
     Dim session As SessionInfo
     Dim user As UserInfo
+    Private sqlinterface As New SQLInterface()
     Public Sub New(ByVal session As SessionInfo, ByVal user As UserInfo)
 
         ' This call is required by the designer.
@@ -26,7 +27,7 @@
             Next
             yStarting = yStarting + multiplier
         Next
-
+        checkAvailability()
 
     End Sub
 
@@ -55,5 +56,15 @@
             Dim bookingConfirmation As New BookingConfirmation(user, session, seatsAL)
             bookingConfirmation.ShowDialog()
         End If
+    End Sub
+
+    Public Sub checkAvailability()
+        Dim bookingAL As ArrayList = sqlinterface.loadBookings()
+        For Each bookingObj In bookingAL
+            Dim booking As BookingInfo = bookingObj
+            If booking.sessionId = session.id Then
+                seat(booking.seatRow - 1, booking.seatColumn - 1).unavailable()
+            End If
+        Next
     End Sub
 End Class
